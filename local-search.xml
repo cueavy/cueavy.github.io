@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>langful-0.24</title>
+    <link href="/2023/04/19/langful-0-24/"/>
+    <url>/2023/04/19/langful-0-24/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>自制python本地化模块</p></blockquote><span id="more"></span><h1 id="langful"><a href="#langful" class="headerlink" title="langful"></a><a href="/%E6%96%87%E6%A1%A3/langful/">langful</a></h1><p align="center">    <a href="https://pypi.org/project/langful">        <img alt="pypi version" src="https://img.shields.io/pypi/v/langful?color=blue">    </a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>可以使用pip直接安装<code>pip install langful</code> 或 <code>pip3 install langful</code></p><p><a href="https://github.com/cueavyqwp/langful">Github</a><br><a href="https://pypi.org/project/langful">pypi</a></p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><blockquote><p>todo</p></blockquote><h2 id="定义-langful-类"><a href="#定义-langful-类" class="headerlink" title="定义 langful 类"></a>定义 <code>langful</code> 类</h2><div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> langfullang = langful.lang()</code></pre></div><h3 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h3><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">类型</th></tr></thead><tbody><tr><td align="center">lang_dir</td><td align="center">本地化文件存放目录</td><td align="center">str</td></tr><tr><td align="center">default_lang</td><td align="center">默认使用的语言</td><td align="center">str</td></tr><tr><td align="center">file_type</td><td align="center">本地化文件类型<code>json</code>或<code>lang</code></td><td align="center">str</td></tr><tr><td align="center">change</td><td align="center">使用什么字符来做替换</td><td align="center">str</td></tr></tbody></table><h3 id="属性解释"><a href="#属性解释" class="headerlink" title="属性解释"></a>属性解释</h3><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">类型</th></tr></thead><tbody><tr><td align="center">lang_dir</td><td align="center">翻译文件的存放目录</td><td align="center">str</td></tr><tr><td align="center">default_lang</td><td align="center">默认使用的翻译</td><td align="center">str</td></tr><tr><td align="center">file_type</td><td align="center">本地化文件类型<code>json</code>或<code>lang</code></td><td align="center">str</td></tr><tr><td align="center">default_locale</td><td align="center">默认语言</td><td align="center">str</td></tr><tr><td align="center">use_locale</td><td align="center">选定的语言</td><td align="center">str</td></tr><tr><td align="center">lang_file</td><td align="center">选择使用的语言文件</td><td align="center">str</td></tr><tr><td align="center">lang_file_list</td><td align="center">所有能找到的语言文件</td><td align="center">list</td></tr><tr><td align="center">lang_str_list</td><td align="center">所有能找到的语言文件的名字</td><td align="center">list</td></tr><tr><td align="center">language_dict</td><td align="center">加载所有可以读取的语言文件</td><td align="center">dict</td></tr><tr><td align="center">language</td><td align="center">加载需要的语言文件</td><td align="center">dict</td></tr><tr><td align="center">change</td><td align="center">使用什么字符来做替换</td><td align="center">str</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>python</tag>
+      
+      <tag>langful</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>langful-0.19</title>
+    <link href="/2023/04/19/langful-0-19/"/>
+    <url>/2023/04/19/langful-0-19/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>自制python本地化模块</p></blockquote><span id="more"></span><h1 id="langful"><a href="#langful" class="headerlink" title="langful"></a><a href="/%E6%96%87%E6%A1%A3/langful/">langful</a></h1><p align="center">    <a href="https://pypi.org/project/langful">        <img alt="PyPI version" src="https://img.shields.io/pypi/v/langful?color=blue">    </a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>可以使用pip直接安装<code>pip install langful</code> 或 <code>pip3 install langful</code></p><p><img src="/2023/04/19/langful-0-19/pip.png" alt="pip"></p><p>这是其Github<a href="https://github.com/cueavyqwp/langful">链接</a><br>这是其pypi<a href="https://pypi.org/project/langful">链接</a></p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="定义-langful-类"><a href="#定义-langful-类" class="headerlink" title="定义 langful 类"></a>定义 <code>langful</code> 类</h2><div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> langfullang = langful.lang()</code></pre></div><h3 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h3><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">类型</th></tr></thead><tbody><tr><td align="center">lang_dir</td><td align="center">本地化文件存放目录</td><td align="center">str</td></tr><tr><td align="center">default_lang</td><td align="center">默认使用的语言</td><td align="center">str</td></tr><tr><td align="center">file_suffix</td><td align="center">本地化文件的后缀<code>.json</code>或<code>.lang</code></td><td align="center">str</td></tr><tr><td align="center">change</td><td align="center">使用什么字符来做替换</td><td align="center">str</td></tr></tbody></table><h3 id="属性解释"><a href="#属性解释" class="headerlink" title="属性解释"></a>属性解释</h3><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">类型</th></tr></thead><tbody><tr><td align="center">lang_dir</td><td align="center">翻译文件的存放目录</td><td align="center">str</td></tr><tr><td align="center">default_lang</td><td align="center">默认使用的翻译</td><td align="center">str</td></tr><tr><td align="center">file_suffix</td><td align="center">本地化文件的后缀<code>.json</code>或<code>.lang</code></td><td align="center">str</td></tr><tr><td align="center">default_locale</td><td align="center">默认语言</td><td align="center">str</td></tr><tr><td align="center">use_locale</td><td align="center">选定的语言</td><td align="center">str</td></tr><tr><td align="center">lang_file</td><td align="center">选择使用的语言文件</td><td align="center">str</td></tr><tr><td align="center">lang_file_list</td><td align="center">所有能找到的语言文件</td><td align="center">list</td></tr><tr><td align="center">lang_str_list</td><td align="center">所有能找到的语言文件的名字</td><td align="center">list</td></tr><tr><td align="center">language_dict</td><td align="center">加载所有可以读取的语言文件</td><td align="center">dict</td></tr><tr><td align="center">language</td><td align="center">加载需要的语言文件</td><td align="center">dict</td></tr><tr><td align="center">change</td><td align="center">使用什么字符来做替换</td><td align="center">str</td></tr></tbody></table><h3 id="函数解释"><a href="#函数解释" class="headerlink" title="函数解释"></a>函数解释</h3><blockquote><p>注:每个函数中的<code>lang_str</code>都可以不填</p></blockquote><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">返回值</th></tr></thead><tbody><tr><td align="center">get()</td><td align="center">获取指定键的值</td><td align="center">str</td></tr><tr><td align="center">set()</td><td align="center">设置指定键的值</td><td align="center">-</td></tr><tr><td align="center">replace()</td><td align="center">给一个字符串 返回替换好翻译的字符串</td><td align="center">str</td></tr></tbody></table><h2 id="本地化文件编写方式"><a href="#本地化文件编写方式" class="headerlink" title="本地化文件编写方式"></a>本地化文件编写方式</h2><p>推荐使用<code>json</code>文件</p><p>遵循 <code>json</code> 语法 即可</p><p>示例</p><div class="code-wrapper"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span>    <span class="hljs-attr">&quot;_&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;可以写些说明信息&quot;</span> <span class="hljs-punctuation">,</span>    <span class="hljs-attr">&quot;hi&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;你好&quot;</span> <span class="hljs-punctuation">,</span>    <span class="hljs-attr">&quot;welcome&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;欢迎&quot;</span><span class="hljs-punctuation">&#125;</span></code></pre></div><p>文件默认储存在 <code>\lang\&#123;文件名&#125;.json</code></p><p>语言代码表 <a href="http://www.lingoes.cn/zh/translator/langcode.htm">参考</a></p><blockquote><p>注意 应使用全小写</p></blockquote><h2 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h2><h3 id="get"><a href="#get" class="headerlink" title="get()"></a><code>get()</code></h3><blockquote><p>获取指定键的值</p></blockquote><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">类型</th></tr></thead><tbody><tr><td align="center">key</td><td align="center">字典的键</td><td align="center">str</td></tr><tr><td align="center">lang_str</td><td align="center">本地化名称 如 <code>zh_cn</code> <code>en_us</code> 等等</td><td align="center">str</td></tr></tbody></table><h3 id="set"><a href="#set" class="headerlink" title="set()"></a><code>set()</code></h3><blockquote><p>设置指定键的值</p></blockquote><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">类型</th></tr></thead><tbody><tr><td align="center">key</td><td align="center">字典的键</td><td align="center">str</td></tr><tr><td align="center">value</td><td align="center">字典的值</td><td align="center">str</td></tr><tr><td align="center">lang_str</td><td align="center">本地化名称 如 <code>zh_cn</code> <code>en_us</code> 等等</td><td align="center">str</td></tr></tbody></table><h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><code>replace()</code></h3><blockquote><p>给一个字符串 返回替换好翻译的字符串</p></blockquote><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">类型</th></tr></thead><tbody><tr><td align="center">args</td><td align="center">字符串</td><td align="center">str</td></tr><tr><td align="center">lang_str</td><td align="center">本地化名称 如 <code>zh_cn</code> <code>en_us</code> 等等</td><td align="center">str</td></tr><tr><td align="center">change</td><td align="center">使用什么字符来做替换</td><td align="center">str</td></tr></tbody></table><blockquote><p><code>lang_str</code>与<code>change</code>均可不填</p></blockquote><h2 id="其它功能"><a href="#其它功能" class="headerlink" title="其它功能"></a>其它功能</h2><h3 id="if-then"><a href="#if-then" class="headerlink" title="if_then()"></a><code>if_then()</code></h3><blockquote><p>如果某个特定项的布尔值为真或假 那么替换为对应的字符串或列表进行替换</p></blockquote><table><thead><tr><th align="center">名称</th><th align="center">解释</th><th align="center">类型</th></tr></thead><tbody><tr><td align="center">args</td><td align="center">字符串</td><td align="center">str</td></tr><tr><td align="center">replace_list</td><td align="center">给一个字符串或列表 来替换字符串</td><td align="center">list or str</td></tr><tr><td align="center">change</td><td align="center">选择用什么符号做替换</td><td align="center">str</td></tr><tr><td align="center">else_replace</td><td align="center">如果为否 那么用这个来做替换</td><td align="center">str</td></tr></tbody></table><blockquote><p>返回值类型 srt</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>python</tag>
+      
+      <tag>langful</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>欢迎</title>
+    <link href="/2023/04/19/%E6%AC%A2%E8%BF%8E/"/>
+    <url>/2023/04/19/%E6%AC%A2%E8%BF%8E/</url>
+    
+    <content type="html"><![CDATA[<p>简单的一些信息介绍</p><span id="more"></span><h1 id="欢迎"><a href="#欢迎" class="headerlink" title="欢迎"></a>欢迎</h1><p>欢迎! 此网站使用 <a href="https://hexo.io/zh-cn/">hexo</a> 搭建</p><p>使用 <a href="https://github.com/fluid-dev/hexo-theme-fluid">fluid</a> 主题</p><p>此网站为我的个人组织网站 并非我的个人网站</p><p>我的个人网站 <a href="https://cueavyqwp.github.io/">Here</a></p><p>我的个人Github组织 <a href="https://github.com/cueavy">Here</a></p><p>我的个人Github账号 <a href="https://github.com/cueavyqwp">Here</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>信息</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>info</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

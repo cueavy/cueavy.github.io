@@ -1,0 +1,999 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/web.png">
+  <link rel="icon" href="/img/web.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="cueavyqwp">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="自制python本地化模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="langful-0.19">
+<meta property="og:url" content="https://cueavy.github.io/2023/04/19/langful-0-19/index.html">
+<meta property="og:site_name" content="cueavy">
+<meta property="og:description" content="自制python本地化模块">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.shields.io/pypi/v/langful?color=blue">
+<meta property="og:image" content="https://cueavy.github.io/2023/04/19/langful-0-19/pip.png">
+<meta property="article:published_time" content="2023-04-19T14:42:23.000Z">
+<meta property="article:modified_time" content="2023-04-19T14:42:49.578Z">
+<meta property="article:author" content="cueavyqwp">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="langful">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.shields.io/pypi/v/langful?color=blue">
+  
+  
+  
+  <title>langful-0.19 - cueavy</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cueavy.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>文档</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/%E6%96%87%E6%A1%A3/langful">
+                    
+                    <span>langful</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/%E6%96%87%E6%A1%A3/XNet">
+                    
+                    <span>XNet</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="langful-0.19"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-19 22:42" pubdate>
+          2023年4月19日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">langful-0.19</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>自制python本地化模块</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="langful"><a href="#langful" class="headerlink" title="langful"></a><a href="/%E6%96%87%E6%A1%A3/langful/">langful</a></h1><p align="center">
+    <a target="_blank" rel="noopener" href="https://pypi.org/project/langful">
+        <img alt="PyPI version" src="https://img.shields.io/pypi/v/langful?color=blue" srcset="/img/loading.gif" lazyload>
+    </a>
+</p>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>可以使用pip直接安装<code>pip install langful</code> 或 <code>pip3 install langful</code></p>
+<p><img src="/2023/04/19/langful-0-19/pip.png" srcset="/img/loading.gif" lazyload alt="pip"></p>
+<p>这是其Github<a target="_blank" rel="noopener" href="https://github.com/cueavyqwp/langful">链接</a><br>这是其pypi<a target="_blank" rel="noopener" href="https://pypi.org/project/langful">链接</a></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="定义-langful-类"><a href="#定义-langful-类" class="headerlink" title="定义 langful 类"></a>定义 <code>langful</code> 类</h2><div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> langful
+
+lang = langful.lang()</code></pre></div>
+
+<h3 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">解释</th>
+<th align="center">类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">lang_dir</td>
+<td align="center">本地化文件存放目录</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">default_lang</td>
+<td align="center">默认使用的语言</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">file_suffix</td>
+<td align="center">本地化文件的后缀<code>.json</code>或<code>.lang</code></td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">change</td>
+<td align="center">使用什么字符来做替换</td>
+<td align="center">str</td>
+</tr>
+</tbody></table>
+<h3 id="属性解释"><a href="#属性解释" class="headerlink" title="属性解释"></a>属性解释</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">解释</th>
+<th align="center">类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">lang_dir</td>
+<td align="center">翻译文件的存放目录</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">default_lang</td>
+<td align="center">默认使用的翻译</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">file_suffix</td>
+<td align="center">本地化文件的后缀<code>.json</code>或<code>.lang</code></td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">default_locale</td>
+<td align="center">默认语言</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">use_locale</td>
+<td align="center">选定的语言</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">lang_file</td>
+<td align="center">选择使用的语言文件</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">lang_file_list</td>
+<td align="center">所有能找到的语言文件</td>
+<td align="center">list</td>
+</tr>
+<tr>
+<td align="center">lang_str_list</td>
+<td align="center">所有能找到的语言文件的名字</td>
+<td align="center">list</td>
+</tr>
+<tr>
+<td align="center">language_dict</td>
+<td align="center">加载所有可以读取的语言文件</td>
+<td align="center">dict</td>
+</tr>
+<tr>
+<td align="center">language</td>
+<td align="center">加载需要的语言文件</td>
+<td align="center">dict</td>
+</tr>
+<tr>
+<td align="center">change</td>
+<td align="center">使用什么字符来做替换</td>
+<td align="center">str</td>
+</tr>
+</tbody></table>
+<h3 id="函数解释"><a href="#函数解释" class="headerlink" title="函数解释"></a>函数解释</h3><blockquote>
+<p>注:每个函数中的<code>lang_str</code>都可以不填</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">解释</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">get()</td>
+<td align="center">获取指定键的值</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">set()</td>
+<td align="center">设置指定键的值</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">replace()</td>
+<td align="center">给一个字符串 返回替换好翻译的字符串</td>
+<td align="center">str</td>
+</tr>
+</tbody></table>
+<h2 id="本地化文件编写方式"><a href="#本地化文件编写方式" class="headerlink" title="本地化文件编写方式"></a>本地化文件编写方式</h2><p>推荐使用<code>json</code>文件</p>
+<p>遵循 <code>json</code> 语法 即可</p>
+<p>示例</p>
+<div class="code-wrapper"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span>
+    <span class="hljs-attr">&quot;_&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;可以写些说明信息&quot;</span> <span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;hi&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;你好&quot;</span> <span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;welcome&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;欢迎&quot;</span>
+<span class="hljs-punctuation">&#125;</span></code></pre></div>
+
+<p>文件默认储存在 <code>\lang\&#123;文件名&#125;.json</code></p>
+<p>语言代码表 <a target="_blank" rel="noopener" href="http://www.lingoes.cn/zh/translator/langcode.htm">参考</a></p>
+<blockquote>
+<p>注意 应使用全小写</p>
+</blockquote>
+<h2 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h2><h3 id="get"><a href="#get" class="headerlink" title="get()"></a><code>get()</code></h3><blockquote>
+<p>获取指定键的值</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">解释</th>
+<th align="center">类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">key</td>
+<td align="center">字典的键</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">lang_str</td>
+<td align="center">本地化名称 如 <code>zh_cn</code> <code>en_us</code> 等等</td>
+<td align="center">str</td>
+</tr>
+</tbody></table>
+<h3 id="set"><a href="#set" class="headerlink" title="set()"></a><code>set()</code></h3><blockquote>
+<p>设置指定键的值</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">解释</th>
+<th align="center">类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">key</td>
+<td align="center">字典的键</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">value</td>
+<td align="center">字典的值</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">lang_str</td>
+<td align="center">本地化名称 如 <code>zh_cn</code> <code>en_us</code> 等等</td>
+<td align="center">str</td>
+</tr>
+</tbody></table>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><code>replace()</code></h3><blockquote>
+<p>给一个字符串 返回替换好翻译的字符串</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">解释</th>
+<th align="center">类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">args</td>
+<td align="center">字符串</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">lang_str</td>
+<td align="center">本地化名称 如 <code>zh_cn</code> <code>en_us</code> 等等</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">change</td>
+<td align="center">使用什么字符来做替换</td>
+<td align="center">str</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>lang_str</code>与<code>change</code>均可不填</p>
+</blockquote>
+<h2 id="其它功能"><a href="#其它功能" class="headerlink" title="其它功能"></a>其它功能</h2><h3 id="if-then"><a href="#if-then" class="headerlink" title="if_then()"></a><code>if_then()</code></h3><blockquote>
+<p>如果某个特定项的布尔值为真或假 那么替换为对应的字符串或列表进行替换</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">解释</th>
+<th align="center">类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">args</td>
+<td align="center">字符串</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">replace_list</td>
+<td align="center">给一个字符串或列表 来替换字符串</td>
+<td align="center">list or str</td>
+</tr>
+<tr>
+<td align="center">change</td>
+<td align="center">选择用什么符号做替换</td>
+<td align="center">str</td>
+</tr>
+<tr>
+<td align="center">else_replace</td>
+<td align="center">如果为否 那么用这个来做替换</td>
+<td align="center">str</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>返回值类型 srt</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B/">#编程</a>
+      
+        <a href="/tags/python/">#python</a>
+      
+        <a href="/tags/langful/">#langful</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>langful-0.19</div>
+      <div>https://cueavy.github.io/2023/04/19/langful-0-19/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>cueavyqwp</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年4月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/04/19/langful-0-24/" title="langful-0.24">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">langful-0.24</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/04/19/%E6%AC%A2%E8%BF%8E/" title="欢迎">
+                        <span class="hidden-mobile">欢迎</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"cueavyqwp/cueavyqwp.github.io","repo-id":"R_kgDOJH9Frg","category":"General","category-id":"DIC_kwDOJH9Frs4CUyZ0","theme-light":"light","theme-dark":"dark","mapping":"title","reactions-enabled":1,"emit-metadata":1,"input-position":"top","lang":"zh-CN","strict":0,"theme":"preferred_color_scheme","crossorigin":"anonymous"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
